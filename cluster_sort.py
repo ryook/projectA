@@ -1,5 +1,7 @@
 #coding:utf-8
 
+#hoghoge
+
 f = open(u"review_clusterv2.txt")
 review_data = f.readlines()
 f.close()
