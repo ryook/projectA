@@ -3,10 +3,9 @@
 import csv
 from collections import Counter
 from math import log
-
 import MeCab
 
-import time
+
 class Dmm():
 
 	def __init__(self):
@@ -47,8 +46,6 @@ class Dmm():
 	def idf(self, data):
 		#in [{"cluster": "1_1_1", "word_counts": {"hoge": 1, ...}}, ... ]
 		#out {"hoge": 0.5, "aaa", 0.2}
-		start = time.time()
-		print "idf start"
 		aw = []
 		for _list in [d["word_counts"].keys() for d in data]:
 			aw += _list
@@ -63,14 +60,11 @@ class Dmm():
 					cnt += 1
 				except:
 					continue
-			idf.update({w: log(doc_cnt*1.0 / cnt)})
-		f = time.time() - start
-		print "END"
-		print f
+			idf.update({w: log(doc_cnt*1.0 / cnt) + 1})
 		return idf
 
 	def tf_idf(self, data):
-		fw = open("dmm_feature_word.txt", "w")
+		fw = open("../out/dmm_feature_word.txt", "w")
 		#in [{"cluster": "1_1_1", "word_counts": {"hoge": 1, ...}}, ... ]
 		#out [{cluster, word, tfidf}]
 		tfidf_list= []
@@ -81,12 +75,11 @@ class Dmm():
 			tf = self.tf(d["word_counts"])
 			for w in d["word_counts"].keys():
 				tfidf = idf[w] * tf[w]
-				row = "{}\t{}\t{}\t{}\t{}\n".format(
+				row = "{}\t{}\t{}\t{}\r".format(
 					cluster,
 					w,
 					tfidf,
-					idf[w],
-					tf[w],
+					d["word_counts"][w],
 					)
 				fw.write(row)
 				sub = {}
@@ -96,7 +89,6 @@ class Dmm():
 				tfidf_list.append(sub)
 
 	def main(self):
-		st = time.time()
 		cn = ["1", "2", "3", "4"]
 		cl_words = []
 		for c1 in cn:
@@ -117,7 +109,6 @@ class Dmm():
 					sub["cluster"] = cluster
 					sub["word_counts"] = uniqu_words
 					cl_words.append(sub)
-		print time.time() - st
 		self.tf_idf(cl_words)
 
 
