@@ -1,20 +1,22 @@
-<DOCTYPE! html>
-<html>
+<!DOCTYPE html>
+<html lang="ja" ng-app="avApp">
 <head>
 	<meta charset="utf-8">
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script type="text/javascript" src="data.js"></script>
-	<script type="text/javascript" src="controller.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular-resource.min.js"></script>
+	<script src="data.json"></script>
+	<script src="controller.js"></script>
 </head>
 
-<body>
-	<div>
-		<input id="text"></input>
-		<button id="btn">送信</button>
-	クラスタの番号を半角で入力(例: 1_1_1)    入力したら数秒まつ
-	</div>
-	<div id="clu"></div>
-	<div id ="img">
-	</div>
+<div ng-controller="mainCtrl">
+	<form novalidate name="myForm">
+	<p>
+		<select ng-model="query.cluster" ng-options="c.cluster for c in reviewData" required>
+			<option value="">-- chose cluster --</option>
+		</select>
+	<button type="button" ng-click="click()">クラスタ検索</button>
+	</p>
+	</form>
+</div>
 </body>
 </html>
