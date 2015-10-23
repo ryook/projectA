@@ -4,16 +4,17 @@
 	<meta charset="utf-8">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular-resource.min.js"></script>
-	<script src="data.json"></script>
+	<script src="data.js"></script>
 	<script src="controller.js"></script>
 </head>
 
 <div ng-controller="mainCtrl">
 	<form novalidate name="myForm">
 	<p>
-		<select ng-model="query.cluster" ng-options="c.cluster for c in reviewData" required>
+		<select name="mySelect" ng-model="selectedItem" ng-options="c for c in reviewData" ng-change="changeItem()" required>
 			<option value="">-- chose cluster --</option>
 		</select>
+		選択 = {{query.cluster}}
 	<button type="button" ng-click="click()">クラスタ検索</button>
 	</p>
 	</form>
