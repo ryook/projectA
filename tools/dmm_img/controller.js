@@ -1,8 +1,8 @@
 var avApp = angular.module("avApp", ["ngResource"]);
 
 avApp.controller("mainCtrl", ["$scope", "$resource", function($scope, $resource){
-	//var avData = $resource("data.json");
-	//clu_Data = avData.query();
+
+	var wordFe = word_Data;
 	var cluNum = data;
 	var numbclu = {};
 
@@ -25,26 +25,25 @@ avApp.controller("mainCtrl", ["$scope", "$resource", function($scope, $resource)
 	$scope.reviewData = onlynum;
 	$scope.selectedItem = null;
 	var imageList = [];
+	var wordList = [];
 	$scope.changeItem = function(){
 		var selected = $scope.selectedItem;
 		console.log(selected);
 		for (var i=0; i < cluNum.length; i++){
 			if (selected == cluNum[i]["cluster"]){
-				imageList.push(cluNum[i]["img"]);
+				imageList.push(cluNum[i]["img"])
+			}
+		}
+		$scope.imageList = imageList
+
+		for (var j=0; j < wordFe.length; j++){
+			if(selected == wordFe[j]["cluster"]){
+				wordList.push(wordFe[j]["word"])
 			}
 		}
 		console.log(imageList);
+		console.log(wordList);
 		imageList = [];
-	};
-
-	console.log(onlynum);
-
-	var option = document.myForm.mySelect.options;
-
-
-
-//画像読み込み部分適当に書いただけ
-	$scope.click = function(){
-		
+		wordList = [];
 	};
 }]);

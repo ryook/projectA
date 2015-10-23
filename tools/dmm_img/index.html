@@ -3,20 +3,23 @@
 <head>
 	<meta charset="utf-8">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
+	<script type="text/javascript" src="./jquery.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular-resource.min.js"></script>
 	<script src="data.js"></script>
+	<script src="wordF.js"></script>
 	<script src="controller.js"></script>
 </head>
-
-<div ng-controller="mainCtrl">
+<body>
+<div ng-controller="mainCtrl" id="text">
 	<form novalidate name="myForm">
 	<p>
 		<select name="mySelect" ng-model="selectedItem" ng-options="c for c in reviewData" ng-change="changeItem()" required>
 			<option value="">-- chose cluster --</option>
 		</select>
-		選択 = {{query.cluster}}
-	<button type="button" ng-click="click()">クラスタ検索</button>
+		選択 = {{selectedItem}}
 	</p>
+	<br>
+	<img src=img ng-repeat="image in imageList" />
 	</form>
 </div>
 </body>
