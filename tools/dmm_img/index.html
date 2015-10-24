@@ -4,7 +4,6 @@
 	<meta charset="utf-8">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
 	<script type="text/javascript" src="./jquery.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular-resource.min.js"></script>
 	<script src="data.js"></script>
 	<script src="wordF.js"></script>
 	<script src="controller.js"></script>
@@ -16,7 +15,8 @@
 		<select name="mySelect" ng-model="selectedItem" ng-options="c for c in reviewData" ng-change="changeItem()" required>
 			<option value="">-- chose cluster --</option>
 		</select>
-		選択 = {{selectedItem}}
+		選択されているクラスタは「 {{selectedItem}} 」です<br/>
+		適当に先頭３００の特徴語 ＝　{{wordList}}
 	</p>
 	<br>
 	<img src="{{image}}" ng-repeat="image in imageList" />

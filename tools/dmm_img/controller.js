@@ -1,6 +1,6 @@
-var avApp = angular.module("avApp", ["ngResource"]);
+var avApp = angular.module("avApp", []);
 
-avApp.controller("mainCtrl", ["$scope", "$resource", function($scope, $resource){
+avApp.controller("mainCtrl", ["$scope", function($scope){
 
 	var wordFe = word_Data;
 	var cluNum = data;
@@ -31,16 +31,19 @@ avApp.controller("mainCtrl", ["$scope", "$resource", function($scope, $resource)
 		console.log(selected);
 		for (var i=0; i < cluNum.length; i++){
 			if (selected == cluNum[i]["cluster"]){
-				imageList.push(cluNum[i]["img"])
+				imageList.push(cluNum[i]["img"]);
 			}
 		}
-		$scope.imageList = imageList
+		$scope.imageList = imageList;
 
 		for (var j=0; j < wordFe.length; j++){
 			if(selected == wordFe[j]["cluster"]){
-				wordList.push(wordFe[j]["word"])
+				wordList.push(wordFe[j]["word"]);
 			}
 		}
+		$scope.wordList = wordList.slice(0,300);
+
+
 		console.log(imageList);
 		console.log(wordList);
 		imageList = [];
