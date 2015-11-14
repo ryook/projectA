@@ -3,6 +3,7 @@
 import os
 from flask import jsonify, Response, abort, request
 import json
+from bson.objectid import ObjectId
 from pymongo import MongoClient
 from app import app
 
@@ -15,3 +16,15 @@ def get_aggregate():
     data = aggregate.find_one()
     del data["_id"]
     return json.dumps(data)
+
+
+@app.route("/aggregate", methods = ["POST"])
+def post_aggregate():
+    post_data = json.loads(request.data)
+    db_data = aggregate.find_one()
+    _id = db_data.pop("_id")
+    for k, c in db_data.items():
+        db_data[k] += post_data[k]
+    print db_data
+    aggregate.update({"_id": ObjectId(_id)}, db_data)
+    return "ok"
