@@ -52,7 +52,7 @@ angular.module("Avapp", [])
 		}else{
 			$scope.likes.push(d);
 			$scope.page = "4";
-			like_cluster= []
+			like_cluster= [];
 			for(h=0; h<$scope.likes.length; h++){
 				like_cluster.push($scope.likes[h]["cluster"]);
 			}
@@ -76,7 +76,6 @@ angular.module("Avapp", [])
 				}
 			}
 		}
-		console.log(like_cluster);
 		console.log($scope.likes);
 	}
 });
