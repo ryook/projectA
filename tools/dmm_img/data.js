@@ -1,4 +1,5 @@
-var data = [{"id":"118har00009","cluster":"1_1_1","img":"http://pics.dmm.co.jp/digital/video/118har00009/118har00009ps.jpg"},
+var data =[
+{"id":"118har00009","cluster":"1_1_1","img":"http://pics.dmm.co.jp/digital/video/118har00009/118har00009ps.jpg"},
 {"id":"118rdt00197","cluster":"1_1_1","img":"http://pics.dmm.co.jp/digital/video/118rdt00197/118rdt00197ps.jpg"},
 {"id":"118tem00002","cluster":"1_1_1","img":"http://pics.dmm.co.jp/digital/video/118tem00002/118tem00002ps.jpg"},
 {"id":"118yrz00042","cluster":"1_1_1","img":"http://pics.dmm.co.jp/digital/video/118yrz00042/118yrz00042ps.jpg"},
@@ -10506,4 +10507,5 @@ var data = [{"id":"118har00009","cluster":"1_1_1","img":"http://pics.dmm.co.jp/d
 {"id":"snis00459","cluster":"4_4_4","img":"http://pics.dmm.co.jp/digital/video/snis00459/snis00459ps.jpg"},
 {"id":"soe00820","cluster":"4_4_4","img":"http://pics.dmm.co.jp/digital/video/soe00820/soe00820ps.jpg"},
 {"id":"supd00121","cluster":"4_4_4","img":"http://pics.dmm.co.jp/digital/video/supd00121/supd00121ps.jpg"},
-{"id":"wanz00271","cluster":"4_4_4","img":"http://pics.dmm.co.jp/digital/video/wanz00271/wanz00271ps.jpg"}]
+{"id":"wanz00271","cluster":"4_4_4","img":"http://pics.dmm.co.jp/digital/video/wanz00271/wanz00271ps.jpg"}
+]

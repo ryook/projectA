@@ -1,20 +1,26 @@
-<DOCTYPE! html>
-<html>
+<!DOCTYPE html>
+<html lang="ja" ng-app="avApp">
 <head>
 	<meta charset="utf-8">
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script type="text/javascript" src="data.js"></script>
-	<script type="text/javascript" src="controller.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
+	<script type="text/javascript" src="./jquery.js"></script>
+	<script src="data.js"></script>
+	<script src="wordF.js"></script>
+	<script src="controller.js"></script>
 </head>
-
 <body>
-	<div>
-		<input id="text"></input>
-		<button id="btn">送信</button>
-	クラスタの番号を半角で入力(例: 1_1_1)    入力したら数秒まつ
-	</div>
-	<div id="clu"></div>
-	<div id ="img">
-	</div>
+<div ng-controller="mainCtrl" id="text">
+	<form novalidate name="myForm">
+	<p>
+		<select name="mySelect" ng-model="selectedItem" ng-options="c for c in reviewData" ng-change="changeItem()" required>
+			<option value="">-- chose cluster --</option>
+		</select>
+		選択されているクラスタは「 {{selectedItem}} 」です<br/>
+		適当に先頭３００の特徴語 ＝　{{wordList}}
+	</p>
+	<br>
+	<img src="{{image}}" ng-repeat="image in imageList" />
+	</form>
+</div>
 </body>
 </html>
