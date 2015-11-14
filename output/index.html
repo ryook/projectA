@@ -43,7 +43,7 @@
 	<div calss="tempResult" ng-if="page=='4'">
 		<p>あなたがえらんだのは</p>
 		<div class="result" ng-repeat="g in likes">
-			<img src="{{g.url}}">
+			<img src="{{g.url}}" title="{{g.cluster}}">
 		</div>
 		<div class="count" ng-repeat="h in count_list">
 			{{h.cluster}} ： {{h.count}}
