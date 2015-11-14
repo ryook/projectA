@@ -1,0 +1,32 @@
+html,body{
+	width: 100%;
+	margin: 0 auto;
+}
+.imageArea{
+	width: 12%;
+	float: left;
+}
+.result{
+	width: 12%;
+	float: left;
+}
+img{
+	width: 100%
+}
+.comment{
+	clear: left;
+	text-align: center;
+}
+.count{
+	clear: left;
+	position: relative;
+}
+.tempResult{
+	width: 95%;
+}
+.ageQuestion{
+	text-align: center;
+}
+.mainQuestion{
+	text-align: center;
+}

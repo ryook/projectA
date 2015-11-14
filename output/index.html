@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="Avapp">
+<head>
+	<meta charset="utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+	<script type="text/javascript" src="controller.js"></script>
+	<script type="text/javascript" src="id_av.js"></script>
+	<script type="text/javascript" src="linq.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+	<title></title>
+</head>
+<body ng-controller="MainController">
+	<div class="ageQuestion" ng-if="page=='1'">
+		<p>あなたの年齢層を教えて下さい</p><br/>
+		<div class="age_radio">
+			<label><input type="radio" name="age" value="10代">10代</label>
+			<label><input type="radio" name="age" value="20代">20代</label>
+			<label><input type="radio" name="age" value="30代">30代</label>
+			<label><input type="radio" name="age" value="40代">40代</label>
+			<label><input type="radio" name="age" value="50代">50代</label>
+			<label><input type="radio" name="age" value="60代">60代</label>
+			<label><input type="radio" name="age" value="それ以上">それ以上</label>
+		</div>
+		<div class="age_button">
+			<input type="button" name="age_next" value="決定" ng-click="page2()">
+		</div>
+	</div>
+	<div class="mainQuestion" ng-if="page=='2'">
+		<p>次々表示される16枚の画像から、好きな物を1枚ずつ選んで下さい。</p>
+		<div class="startButton">
+			<input type="button" name="game_start" value="始める" ng-click="page3()">
+		</div>
+	</div>
+	<div class="clickImage" ng-if="page=='3'">
+		<div class="imageArea" ng-repeat="d in select_data">
+			<img src="{{d.url}}" ng-click="imgclick(d)">
+		</div>
+		<div class="comment">
+			<p ng-model="counter">あと{{counter}}回</p>
+		</div>
+	</div>
+	<div calss="tempResult" ng-if="page=='4'">
+		<p>あなたがえらんだのは</p>
+		<div class="result" ng-repeat="g in likes">
+			<img src="{{g.url}}">
+		</div>
+		<div class="count" ng-repeat="h in count_list">
+			{{h.cluster}} ： {{h.count}}
+		</div>
+	</div>
+</body>
+</html>
