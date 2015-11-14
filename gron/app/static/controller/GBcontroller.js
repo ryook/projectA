@@ -1,5 +1,8 @@
-angular.module("Avapp", [])
-.controller("MainController", function($scope){
+angular.module("gron", [])
+.controller("test", function(){
+	$scope.aa = "aaa"
+})
+.controller("GBController", function($scope){
 	$scope.page = "1";
 	$scope.page2 = function(){
 		$scope.page = "2";
@@ -40,7 +43,7 @@ angular.module("Avapp", [])
 		$scope.img_list = [];
 		$scope.click += 1;
 		$scope.counter = 16 - $scope.click;
-		if($scope.click<16){
+		if($scope.click<2){
 			$scope.likes.push(d);
 			for(i=0; i<$scope.x_list.length; i++){
 				$scope.img_list.push($scope.x_list[i][$scope.click]);
@@ -51,6 +54,7 @@ angular.module("Avapp", [])
 			console.log($scope.img_list);
 		}else{
 			$scope.likes.push(d);
+			console.log($scope.likes)
 			$scope.page = "4";
 			like_cluster= [];
 			for(h=0; h<$scope.likes.length; h++){

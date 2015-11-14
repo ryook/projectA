@@ -10,7 +10,8 @@
 </head>
 	<title></title>
 </head>
-<body ng-controller="MainController">
+<body>
+	<div ng-controller="MainController">
 	<div class="ageQuestion" ng-if="page=='1'">
 		<p>あなたの年齢層を教えて下さい</p><br/>
 		<div class="age_radio">
@@ -49,5 +50,6 @@
 			{{h.cluster}} ： {{h.count}}
 		</div>
 	</div>
+</div>
 </body>
 </html>
