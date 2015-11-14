@@ -7,5 +7,5 @@ app.debug = True
 
 from app.model import personal
 from app.model import aggregate
-from app import index
-from app import tweet
+from app.route import index
+from app.route import tweet
