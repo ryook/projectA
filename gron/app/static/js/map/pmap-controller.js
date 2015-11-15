@@ -1,6 +1,26 @@
 angular.module('gron')
   .controller('PmapController', ['$scope', '$routeParams', '$http',
     function ($scope, $routeParams, $http) {
+      $scope.chk_class = function(count){
+        if(count > 6){
+          // console.log(count)
+          cl =  "_4 l2"
+        }else if (count <= 6 && count > 4){
+          // console.log(count)
+          cl =  "_3 l2"
+        }else if (count <= 4 && count > 2){
+          // console.log(count)
+          cl =  "_2 l2"
+        }else if (count <= 2 && count > 0) {
+          // console.log(count)
+          cl ="_1 l2"
+        }else {
+          // console.log(count)
+          cl = "_0"
+        }
+        console.log(cl)
+        return cl
+      }
       personal_id = $routeParams.personal_id;
       $scope.personal_id = personal_id;
       $http({
@@ -12,6 +32,7 @@ angular.module('gron')
           $scope.likes = data["likes"]
           count = data["count"]
           $scope.map_count = make_map_data(count)
+          console.log($scope.map_count)
         }
       }).error(function(data, status, headers, config){
         console.log("error")
@@ -38,6 +59,11 @@ var make_map_data = function(data){
         l1_list.push({'cluster':cluster,'count':0})
       };
     }
+    // l1_list.sort(function(a,b){
+    //   if(a.cluster > b.cluster) return 1;
+    //   if(a.cluster < b.cluster) return -1;
+    //   return 0;
+    // });
     count_data_ForMap.push(l1_list)
   }
   return count_data_ForMap
