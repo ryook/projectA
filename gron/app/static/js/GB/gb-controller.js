@@ -1,5 +1,5 @@
 angular.module("gron")
-.controller("GBController", ['$scope', '$http', '$window', function($scope, $http, $window){
+.controller("GBController", ['$scope', '$http', '$location', function($scope, $http, $location){
 	$scope.page = "1";
 	$scope.page2 = function(){
 		$scope.page = "2";
@@ -95,7 +95,7 @@ angular.module("gron")
 				data : data
 			}).success(function(data){
 				console.log("personal succeded")
-				$window.location.href = '/personal/' + data;
+				$location.path('/personal_map/' + data);
 			}).error(function(){
 				console.log("error")
 			})

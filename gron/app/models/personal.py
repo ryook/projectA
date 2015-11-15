@@ -11,7 +11,7 @@ connection = MongoClient('localhost', 27017)
 db = connection.gron
 personal = db.personal
 
-@app.route("/pmap", methods=["GET"])
+@app.route("/personal_map", methods=["GET"])
 def show_pmap():
     return app.send_static_file("index.html")
 
