@@ -1,10 +1,10 @@
-#coding:utf-8
+# app.config.from_object('config')
 
 from flask import Flask
 app = Flask(__name__, static_url_path='')
 app.debug = True
 
-from app.model import personal
-from app.model import aggregate
-from app.route import index
-from app.route import tweet
+from app.models import personal
+from app.models import aggregate
+from app.routes import index
+from app.routes import tweet

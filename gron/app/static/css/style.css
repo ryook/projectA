@@ -2,6 +2,11 @@ html,body{
 	width: 100%;
 	margin: 0 auto;
 }
+
+span{
+	font-size: 20px;
+	font-weight: bold;
+}
 .imageArea{
 	width: 12%;
 	float: left;
@@ -29,4 +34,11 @@ img{
 }
 .mainQuestion{
 	text-align: center;
+}
+
+.btn{
+	width: 200px;
+	height: 40px;
+	background-color: orange;
+
 }
