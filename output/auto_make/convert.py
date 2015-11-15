@@ -2,7 +2,7 @@
 
 import xlrd
 
-book = xlrd.open_workbook(u"title_words.xlsx")
+book = xlrd.open_workbook(u"title_words2.xlsx")
 
 sheet_1 = book.sheet_by_index(0)
 
