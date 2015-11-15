@@ -1,3 +1,25 @@
-<div ng-controller="PmapController">
-  {{test}}
+<div class="map" ng-controller="PmapController">
+  被験者{{personal_id}}のえろまっぷだよ
+  <p><span>{{title}}</span></p>
+  <div class="map_img_area　clearfix">
+    <img class="map_img" ng-repeat="g in likes" src="{{g.url}}" title="{{g.cluster}}">
+  </div>
+  <div class="personal_map">
+    <div class="l1" ng-repeat="l1 in map_count">
+      <div class="l2 _0" ng-repeat="l2 in l1"  ng-if="l2['count'] == 0">{{l2}}</div>
+      <div class="l2 _1" ng-repeat="l2 in l1"  ng-if="l2['count'] > 0 && l2['count'] <= 2">{{l2}}</div>
+      <div class="l2 _2" ng-repeat="l2 in l1"  ng-if="l2['count'] > 2 && l2['count'] <= 4">{{l2}}</div>
+      <div class="l2 _3" ng-repeat="l2 in l1"  ng-if="l2['count'] > 4 && l2['count'] <= 6">{{l2}}</div>
+      <div class="l2 _4" ng-repeat="l2 in l1"  ng-if="l2['count'] > 7">{{l2}}</div>
+    </div>
+  <!-- <table>
+      <tr class="l1" ng-repeat="l1 in map_count">
+        <td class="l2" ng-repeat="l2 in l1" class="_0" ng-if="l2['count'] == 0">{{l2}}</td>
+        <td class="l2" ng-repeat="l2 in l1" class="_1" ng-if="l2['count'] > 0 && l2['count'] <= 2">{{l2}}</td>
+        <td class="l2" ng-repeat="l2 in l1" class="_2" ng-if="l2['count'] > 2 && l2['count'] <= 4">{{l2}}</td>
+        <td class="l2" ng-repeat="l2 in l1" class="_3" ng-if="l2['count'] > 4 && l2['count'] <= 6">{{l2}}</td>
+        <td class="l2" ng-repeat="l2 in l1" class="_4" ng-if="l2['count'] > 7">{{l2}}</td>
+      </tr>
+  </table> -->
+  </div>
 </div>

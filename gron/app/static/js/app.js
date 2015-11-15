@@ -8,7 +8,7 @@ angular.module('gron', ['ngResource', 'ngRoute', 'ui.bootstrap', 'ui.date'])
       .when('/gb', {
         templateUrl: 'views/GB/gb.html',
         controller: 'GBController'})
-      .when('/personal_map/', {
+      .when('/personal_map/:personal_id', {
         templateUrl: 'views/map/personal_map.html',
         controller: 'PmapController'})
       .otherwise({redirectTo: '/'});
