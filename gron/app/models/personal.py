@@ -4,11 +4,10 @@ import os
 from flask import jsonify, Response, abort, request
 import json
 from pymongo import MongoClient
-from app import app, connection
+from app import app, db
 from app.routes import tweet
 
 # connection = MongoClient('localhost', 27017)
-db = connection.gron
 personal = db.personal
 
 @app.route("/personal_map/<id>", methods=["GET"])
@@ -18,8 +17,6 @@ def show_pmap(id):
 @app.route("/personal/<id>", methods=["GET"])
 def get_personal(id):
     personal_data = personal.find_one({"id":int(id)})
-    print personal_data
-    print type(personal_data)
     if personal_data == None:
         abort(404)
     del personal_data["_id"]

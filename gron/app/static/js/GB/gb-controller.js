@@ -1,6 +1,9 @@
 angular.module("gron")
 .controller("GBController", ['$scope', '$http', '$location', function($scope, $http, $location){
 	$scope.page = "1";
+	$scope.select_age = function(){
+		console.log($scope.age_value)
+	};
 	$scope.page2 = function(){
 		$scope.page = "2";
 		$scope.likes = [];
@@ -79,25 +82,36 @@ angular.module("gron")
 		    if(a.count < b.count) return 1;
 		    return 0;
 			});
+			console.log($scope.age_value)
 			console.log(count_list)
 			$scope.count_list = count_list
 			$scope.title = makeTitle(count_list[0]["cluster"])
 		}
 
 		$scope.view_personal_map = function(){
-			data = {}
-			data["title"] = $scope.title
-			data["count"] = $scope.count_list
-			data["likes"] = $scope.likes
+			post_data = {}
+			post_data["age"] = $scope.age_value
+			post_data["title"] = $scope.title
+			post_data["count"] = $scope.count_list
+			post_data["likes"] = $scope.likes
+			console.log(post_data)
 			$http({
 				method : 'POST',
 				url : 'personal/post',
-				data : data
-			}).success(function(data){
+				data : post_data
+			}).success(function(pdata){
+				$http({
+					method : 'POST',
+					url : 'aggregate/post',
+					data : post_data
+				}).success(function(data){
+				}).error(function(){
+					console.log("aggregate error")
+				})
 				console.log("personal succeded")
-				$location.path('/personal_map/' + data);
+				$location.path('/personal_map/' + pdata);
 			}).error(function(){
-				console.log("error")
+				console.log("personal error")
 			})
 		}
 	}

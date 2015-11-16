@@ -30,6 +30,7 @@ angular.module('gron')
         if(!$scope.title){
           $scope.title = data["title"]
           $scope.likes = data["likes"]
+          console.log($scope.likes)
           count = data["count"]
           $scope.map_count = make_map_data(count)
           console.log($scope.map_count)
@@ -59,11 +60,6 @@ var make_map_data = function(data){
         l1_list.push({'cluster':cluster,'count':0})
       };
     }
-    // l1_list.sort(function(a,b){
-    //   if(a.cluster > b.cluster) return 1;
-    //   if(a.cluster < b.cluster) return -1;
-    //   return 0;
-    // });
     count_data_ForMap.push(l1_list)
   }
   return count_data_ForMap

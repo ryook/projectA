@@ -10,8 +10,10 @@ print "###################################"
 print MONGO_URL
 if MONGO_URL:
     connection = MongoClient(MONGO_URL)
+    db = connection.heroku_8335r02w
 else:
     connection = MongoClient('localhost', 27017)
+    db = connection.gron
 app.debug = True
 
 from app.models import personal
