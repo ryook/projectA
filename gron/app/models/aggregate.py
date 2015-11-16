@@ -5,9 +5,9 @@ from flask import jsonify, Response, abort, request
 import json
 from bson.objectid import ObjectId
 from pymongo import MongoClient
-from app import app
+from app import app, connection
 
-connection = MongoClient('localhost', 27017)
+# connection = MongoClient('localhost', 27017)
 db = connection.gron
 aggregate = db.aggregate
 

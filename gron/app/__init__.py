@@ -1,7 +1,17 @@
 # app.config.from_object('config')
 
 from flask import Flask
+import os
+from pymongo import MongoClient
+
 app = Flask(__name__, static_url_path='')
+MONGO_URL = os.environ.get('MONGOLAB_URI')
+print "###################################"
+print MONGO_URL
+if MONGO_URL:
+    connection = MongoClient(MONGO_URL)
+else:
+    connection = MongoClient('localhost', 27017)
 app.debug = True
 
 from app.models import personal

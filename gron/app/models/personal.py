@@ -4,10 +4,10 @@ import os
 from flask import jsonify, Response, abort, request
 import json
 from pymongo import MongoClient
-from app import app
+from app import app, connection
 from app.routes import tweet
 
-connection = MongoClient('localhost', 27017)
+# connection = MongoClient('localhost', 27017)
 db = connection.gron
 personal = db.personal
 
