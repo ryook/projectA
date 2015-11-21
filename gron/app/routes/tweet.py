@@ -8,24 +8,11 @@ import json
 @app.route('/tweet', methods=["GET","POST"])
 def tweet():
     if request.method == "POST":
-        # print type(request.form["title"])
         post_data = json.loads(request.data)
         tweet_post(post_data["id"], post_data["title"])
-        # tweet_post("1", request.data)
         return "tweet post"
     else:
         return "tweet"
-
-# @app.route('/tweet_form', methods=["GET","POST"])
-# def tweet():
-#     if request.method == "POST":
-#         print type(request.form["title"])
-#         post_data = json.loads(request.data)
-#         tweet_post(post_data["id"], post_data["title"])
-#         # tweet_post("1", request.data)
-#         return "tweet post"
-#     else:
-#         return "tweet"
 
 
 def tweet_post(user, title):
@@ -40,5 +27,5 @@ def tweet_post(user, title):
         access_token_secret = _as,
     )
     hashtag = "#g_ORF2015"
-    text = "被験者{}さんは「{}」で果てました。 {}".format(str(user),title.encode("utf-8"), hashtag)
+    text = "たった今、彼は『{}』で果てました。 https://gron.herokuapp.com/#/personal_map/{} {}".format(title.encode("utf-8"),str(user) ,hashtag)
     tw_api.PostUpdate(text)

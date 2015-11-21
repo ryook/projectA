@@ -1,26 +1,26 @@
 angular.module('gron')
   .controller('PmapController', ['$scope', '$routeParams', '$http',
     function ($scope, $routeParams, $http) {
-      $scope.chk_class = function(count){
-        if(count > 6){
-          // console.log(count)
-          cl =  "_4 l2"
-        }else if (count <= 6 && count > 4){
-          // console.log(count)
-          cl =  "_3 l2"
-        }else if (count <= 4 && count > 2){
-          // console.log(count)
-          cl =  "_2 l2"
-        }else if (count <= 2 && count > 0) {
-          // console.log(count)
-          cl ="_1 l2"
-        }else {
-          // console.log(count)
-          cl = "_0"
-        }
-        console.log(cl)
-        return cl
-      }
+      // $scope.chk_class = function(count){
+      //   if(count > 6){
+      //     // console.log(count)
+      //     cl =  "_4 l2"
+      //   }else if (count <= 6 && count > 4){
+      //     // console.log(count)
+      //     cl =  "_3 l2"
+      //   }else if (count <= 4 && count > 2){
+      //     // console.log(count)
+      //     cl =  "_2 l2"
+      //   }else if (count <= 2 && count > 0) {
+      //     // console.log(count)
+      //     cl ="_1 l2"
+      //   }else {
+      //     // console.log(count)
+      //     cl = "_0"
+      //   }
+      //   console.log(cl)
+      //   return cl
+      // }
       personal_id = $routeParams.personal_id;
       $scope.personal_id = personal_id;
       $http({
@@ -30,10 +30,9 @@ angular.module('gron')
         if(!$scope.title){
           $scope.title = data["title"]
           $scope.likes = data["likes"]
-          console.log($scope.likes)
+          $scope.age = data["age"]
           count = data["count"]
           $scope.map_count = make_map_data(count)
-          console.log($scope.map_count)
         }
       }).error(function(data, status, headers, config){
         console.log("error")
@@ -54,13 +53,15 @@ var make_map_data = function(data){
                           }
                         })
                         .ToArray()[0];
+      cl_name = cluster_name[cluster]
       if(l2_data){
-        l1_list.push({'cluster':cluster,'count':l2_data["count"]})
+        l1_list.push({'cluster':cluster,'count':l2_data["count"], 'name':cl_name})
       }else{
-        l1_list.push({'cluster':cluster,'count':0})
+        l1_list.push({'cluster':cluster,'count':0, 'name':cl_name})
       };
     }
     count_data_ForMap.push(l1_list)
   }
+  console.log("p",count_data_ForMap)
   return count_data_ForMap
 }

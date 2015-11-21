@@ -1,18 +1,24 @@
 <div class="map" ng-controller="PmapController">
-  被験者{{personal_id}}のえろまっぷだよ
+  視聴者{{personal_id}}さん({{age}}代)のえろまっぷ
   <p><span>{{title}}</span></p>
   <div class="map_img_area　clearfix">
     <img class="map_img" ng-repeat="g in likes" src="{{g.url}}" title="{{g.cluster}}">
   </div>
   <div class="personal_map">
     <div class="l1" ng-repeat="l1 in map_count">
-      <div class="l2" ng-repeat="l2 in l1">
-        <div class="color _0" ng-if="l2['count'] <= 1 ">{{l2}}</div>
-        <div class="color _1" ng-if="l2['count'] > 1 && l2['count'] <= 2">{{l2}}</div>
-        <div class="color _2" ng-if="l2['count'] > 2 && l2['count'] <= 4">{{l2}}</div>
-        <div class="color _3" ng-if="l2['count'] > 4 && l2['count'] <= 6">{{l2}}</div>
-        <div class="color _4" ng-if="l2['count'] > 7">{{l2}}</div>
+      <div class="l2 b{{l2['cluster']}}" ng-repeat="l2 in l1">
+        <div class="color _0" ng-if="l2['count'] == 0">{{l2["name"]}} （{{l2["count"]}}）</div>
+        <div class="color _1" ng-if="l2['count'] == 1">{{l2["name"]}} （{{l2["count"]}}）</div>
+        <div class="color _2" ng-if="l2['count'] == 2">{{l2["name"]}} （{{l2["count"]}}）</div>
+        <div class="color _3" ng-if="l2['count'] == 3">{{l2["name"]}} （{{l2["count"]}}）</div>
+        <div class="color _4" ng-if="l2['count'] == 4">{{l2["name"]}} （{{l2["count"]}}）</div>
+        <div class="color _5" ng-if="l2['count'] == 5">{{l2["name"]}} （{{l2["count"]}}）</div>
+        <div class="color _6" ng-if="l2['count'] == 6">{{l2["name"]}} （{{l2["count"]}}）</div>
+        <div class="color _7" ng-if="l2['count'] == 7">{{l2["name"]}} （{{l2["count"]}}）</div>
+        <div class="color _8" ng-if="l2['count'] > 7">{{l2["name"]}} （{{l2["count"]}}）</div>
       </div>
     </div>
   </div>
+  <p></p>
+  <p><a href="http://web.sfc.keio.ac.jp/~ryou/tool_map/index.html" target="_blank">解説はこちら</a></p>
 </div>

@@ -1,0 +1,18 @@
+<div class="map" ng-controller="AgmapController">
+  <p><span class="ag_title">{{date}} {{user_count}}人が回答</span></p>
+  <div class="aggregate_map">
+    <div class="l1" ng-repeat="l1 in agmap_count">
+      <div class="l2" ng-repeat="l2 in l1">
+        <div class="colorag _0" ng-if="l2['count'] < 20">{{l2["count"]}}</div>
+        <div class="colorag _1" ng-if="l2['count'] >= 20 && l2['count'] < 50">{{l2["count"]}}</div>
+        <div class="colorag _2" ng-if="l2['count'] >= 50 && l2['count'] < 100">{{l2["count"]}}</div>
+        <div class="colorag _3" ng-if="l2['count'] >= 100 && l2['count'] < 140">{{l2["count"]}}</div>
+        <div class="colorag _4" ng-if="l2['count'] >= 140 && l2['count'] < 180">{{l2["count"]}}</div>
+        <div class="colorag _5" ng-if="l2['count'] >= 180 && l2['count'] < 200">{{l2["count"]}}</div>
+        <div class="colorag _6" ng-if="l2['count'] >= 200 && l2['count'] < 250">{{l2["count"]}}</div>
+        <div class="colorag _7" ng-if="l2['count'] >=250  && l2['count'] < 300">{{l2["count"]}}</div>
+        <div class="colorag _8" ng-if="l2['count'] >= 300">{{l2["count"]}}</div>
+      </div>
+    </div>
+  </div>
+</div>

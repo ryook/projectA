@@ -53,7 +53,6 @@ angular.module("gron")
 				.ToArray();
 		}else{
 			$scope.likes.push(d);
-			$scope.page = "4";
 			like_cluster= [];
 			for(h=0; h<$scope.likes.length; h++){
 				like_cluster.push($scope.likes[h]["cluster"]);
@@ -82,10 +81,9 @@ angular.module("gron")
 		    if(a.count < b.count) return 1;
 		    return 0;
 			});
-			console.log($scope.age_value)
-			console.log(count_list)
 			$scope.count_list = count_list
 			$scope.title = makeTitle(count_list[0]["cluster"])
+			$scope.view_personal_map()
 		}
 
 		$scope.view_personal_map = function(){

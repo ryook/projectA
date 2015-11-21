@@ -6,10 +6,11 @@ html,body{
 .container{
 	width: 100%;
 }
-
-span{
-	font-size: 20px;
+p{
+	text-align: center;
+	font-size: 30px;
 	font-weight: bold;
+	margin: 0 auto;
 }
 .imageArea{
 	width: 12%;
@@ -68,17 +69,27 @@ img{
 .personal_map{
 	clear: both;
 	width: 100%;
-	height: 400px;
+	height: 500px;
 	padding-top: 20px;
 }
 
-/*table{
+/*aggregate*/
+@font-face {
+	font-family: "gokuhoso";
+	src: url('chogokubosogothic_5.ttf') format('truetype');
+}
+
+.ag_title{
+	font-family: "gokuhoso";
+}
+
+table{
 	width: 100%;
 	height: 100%;
 }
 td{
 	width: 25%;
-}*/
+}
 .l1{
 	width: 50%;
 	height: 50%;
@@ -88,27 +99,126 @@ td{
 	width: 50%;
 	height: 50%;
 	float: left;
-	/*border: 1px solid black;*/
 }
 .color{
 	width: 100%;
 	height: 100%;
+	font-size: 18px;
+	color: blue;
+	text-align: center;
+}
+
+.colorag{
+	width: 100%;
+	height: 150px;
+	font-size: 18px;
+	text-align: center;
+	font-family: "gokuhoso";
+	font-weight: bold;
+	border: 1px solid black;
+	/*color: white;*/
+}
+
+
+.b1_1{
+	background-image: url("https://dl.dropboxusercontent.com/u/12755271/ORF/gron/back/1_1.jpg");
+	background-size:contain;
+	/*positon:relative;*/
+}
+.b1_2{
+	background-image: url("https://dl.dropboxusercontent.com/u/12755271/ORF/gron/back/1_2.jpg");
+	background-size:contain;
+	/*positon:relative;*/
+}
+.b1_3{
+	background-image: url("https://dl.dropboxusercontent.com/u/12755271/ORF/gron/back/1_3.jpg");
+	background-size:contain;
+}
+.b1_4{
+	background-image: url("https://dl.dropboxusercontent.com/u/12755271/ORF/gron/back/1_4.jpg");
+	background-size:contain;
+}
+.b2_1{
+	background-image: url("https://dl.dropboxusercontent.com/u/12755271/ORF/gron/back/2_1.jpg");
+	background-size:contain;
+}
+.b2_2{
+	background-image: url("https://dl.dropboxusercontent.com/u/12755271/ORF/gron/back/2_2.jpg");
+	background-size:contain;
+}
+.b2_3{
+	background-image: url("https://dl.dropboxusercontent.com/u/12755271/ORF/gron/back/2_3.jpg");
+	background-size:contain;
+}
+.b2_4{
+	background-image: url("https://dl.dropboxusercontent.com/u/12755271/ORF/gron/back/2_4.jpg");
+	background-size:contain;
+}
+.b3_1{
+	background-image: url("https://dl.dropboxusercontent.com/u/12755271/ORF/gron/back/3_1.jpg");
+	background-size:contain;
+}
+.b3_2{
+	background-image: url("https://dl.dropboxusercontent.com/u/12755271/ORF/gron/back/3_2.jpg");
+	background-size:contain;
+}
+.b3_3{
+	background-image: url("https://dl.dropboxusercontent.com/u/12755271/ORF/gron/back/3_3.jpg");
+	background-size:contain;
+}
+.b3_4{
+	background-image: url("https://dl.dropboxusercontent.com/u/12755271/ORF/gron/back/3_4.jpg");
+	background-size:contain;
+}
+.b4_1{
+	background-image: url("https://dl.dropboxusercontent.com/u/12755271/ORF/gron/back/4_1.jpg");
+	background-size:contain;
+}
+.b4_2{
+	background-image: url("https://dl.dropboxusercontent.com/u/12755271/ORF/gron/back/4_2.jpg");
+	background-size:contain;
+}
+.b4_3{
+	background-image: url("https://dl.dropboxusercontent.com/u/12755271/ORF/gron/back/4_3.jpg");
+	background-size:contain;
+}
+.b4_4{
+	background-image: url("https://dl.dropboxusercontent.com/u/12755271/ORF/gron/back/4_4.jpg");
+	background-size:contain;
 }
 ._0{
-	background-color: white;
+	color: black;
+	background-color: rgba(255, 255, 255, 0.8);
+	/*background-color: rgba(245, 124, 0, 0.6);*/
 }
 ._1{
-	background-color: #ffebee;
+	background-color: rgba(255, 244, 255, 0.6);
 }
 ._2{
-	background-color: #ef9a9a;
+	background-color: rgba(255, 170, 213, 0.6);
 }
 ._3{
-	background-color: #f44336;
+	background-color: rgba(255, 85, 170, 0.4);
 }
 ._4{
-	background-color: #b71c1c;
+	background-color: rgba(255, 0, 128, 0.4);
 }
+._5{
+	/*background-color: rgba(136, 14, 79, 0.6);*/
+	background-color: rgba(170, 0, 85, 0.6);
+}
+._6{
+	background-color: rgba(245, 124, 0, 0.8);
+}
+._7{
+	background-color: rgba(216, 67, 21, 0.6);
+}
+._8{
+	background-color: rgba(216, 67, 21, 0.8);
+}
+
+
+
 
 
 /*home*/

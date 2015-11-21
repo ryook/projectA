@@ -9,15 +9,24 @@ from app import app, db
 
 # connection = MongoClient('localhost', 27017)
 aggregate = db.aggregate
+personal = db.personal
 
 @app.route("/aggregate", methods = ["GET"])
 def get_aggregate():
-    data = aggregate.find()
-    rtn_list = []
-    for d in data:
-        del d["_id"]
-        rtn_list.append(d)
-    return json.dumps(rtn_list)
+    data = aggregate.find({'$or':[{'age':"10"},{'age':"20"},{'age':"30"},
+                                    {'age':"40"},{'age':"50"},{'age':"60"}]})
+    count_list = [d["count"] for d in data]
+    rtn_dic = {"3_1": 0, "3_3": 0, "3_2": 0, "3_4": 0, "2_1": 0, "2_2": 0, "2_3": 0, "2_4": 0, "1_4": 0, "1_3": 0, "1_2": 0, "1_1": 0, "4_2": 0, "4_3": 0, "4_1": 0, "4_4": 0}
+    for clu in rtn_dic.keys():
+        for r in count_list:
+            rtn_dic[clu] += r[clu]
+    # for d in data:
+    #     del d["_id"]
+    #     rtn_list.append(d)
+    rtn_data = {}
+    rtn_data["count"] = rtn_dic
+    rtn_data["user"] = personal.find().count()
+    return json.dumps(rtn_data)
 
 @app.route("/aggregate/post", methods = ["POST"])
 def post_aggregate():
